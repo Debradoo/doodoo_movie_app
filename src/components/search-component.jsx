@@ -59,7 +59,7 @@ function SearchComponent() {
       />
       {show && searchTerm? <IoClose onClick={() => setShow(false)} /> :
         <BiSearch />}
-      <div className={`${show ? "flex flex-col" : "hidden"}
+      <div className={`${show && searchTerm ? "flex flex-col" : "hidden"}
      items-center justify-center gap-2 w-80 bg-white p-2 text-black
       absolute top-12 right-0`}>
        {loading ?  <PiSpinnerBold className='animate-spin'/> :

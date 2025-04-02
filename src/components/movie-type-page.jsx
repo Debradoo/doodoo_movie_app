@@ -47,7 +47,7 @@ if(movies.length === 0) return <div>No movie found</div>
   return (
     <div className='mt-10 w-full'>
       <h2 className='text-2xl mb-4'>Movie Type: <span className='italic'>Movie</span></h2>
-        <div className='grid gap-4'>
+        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-4'>
         {movies.map((movie)=>(
             <MovieCard key={movie.imdbID} movie={movie}/>
         ))}
