@@ -3,7 +3,7 @@ import { primaryBorderColor, primaryTextColor } from '../lib/colors'
 import { BiSearch } from 'react-icons/bi'
 import { IoClose } from "react-icons/io5";
 import {PiSpinnerBold } from 'react-icons/pi';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 
 function SearchComponent() {
@@ -12,7 +12,7 @@ function SearchComponent() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   
-  
+  const router = useNavigate();
 
   useEffect(() => {
     (
@@ -46,7 +46,7 @@ function SearchComponent() {
   }
   return (
     <div
-      className={`${primaryBorderColor} border-1 w-80 h-10 rounded-full
+      className={`${primaryBorderColor} border-1 w-full md:w-80 h-10 rounded-full
     flex items-center justify-between p-4 relative
     `}
 
@@ -55,6 +55,11 @@ function SearchComponent() {
         placeholder='Search movie by title'
         onFocus={() => setShow(true)}
         onChange={onChange}
+        onKeyUp={(e)=>{
+          if(e.code === "Enter"){
+          router(`/search/${searchTerm}`)
+          }
+        }}
 
       />
       {show && searchTerm? <IoClose onClick={() => setShow(false)} /> :

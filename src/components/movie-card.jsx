@@ -4,7 +4,6 @@ import { primaryBorderColor } from '../lib/colors'
 function MovieCard({movie}) {
 
     if(!movie) return null
-console.log(movie)
   return (
     <div className={`${primaryBorderColor} border-2 w-full h-96`}>
         <img src={movie.Poster} alt={movie.Title} className='w-full h-72 object-cover mb-4'/>
